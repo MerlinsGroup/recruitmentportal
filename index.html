@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merlin | Enterprise Recruitment Intelligence Platform</title>
+    <title>SmartTalentPortal by MerlinsGroup | Enterprise Recruitment Intelligence Platform</title>
     <style>
         * {
             margin: 0;
@@ -58,7 +58,7 @@
         .logo-wrapper {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
         }
         
         .logo {
@@ -68,6 +68,29 @@
         
         .logo:hover {
             transform: scale(1.05);
+        }
+        
+        .brand-name {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .brand-primary {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+        
+        .brand-secondary {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
         
         .nav-cta {
@@ -456,6 +479,130 @@
             gap: 1rem;
         }
         
+        /* Platform Screenshots Section */
+        .screenshots {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-bg) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .screenshots::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, var(--border), transparent);
+        }
+        
+        .screenshots-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .screenshots-wrapper {
+            margin-top: 3rem;
+        }
+        
+        .screenshot-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            background: var(--white);
+            border: 2px solid var(--border);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tab-button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(10, 14, 39, 0.2);
+        }
+        
+        .tab-icon {
+            font-size: 1.2rem;
+        }
+        
+        .screenshot-display {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .screenshot-frame {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .screenshot-frame.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .screenshot-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border);
+        }
+        
+        .screenshot-caption {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+        
+        .screenshot-caption h4 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .screenshot-caption p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
         /* Client Testimonial - Premium Design */
         .testimonial {
             padding: 6rem 2rem;
@@ -785,6 +932,10 @@
         <div class="nav-container">
             <div class="logo-wrapper">
                 <img src="merlin.png" alt="Merlin" class="logo">
+                <div class="brand-name">
+                    <span class="brand-primary">SmartTalentPortal</span>
+                    <span class="brand-secondary">by MerlinsGroup</span>
+                </div>
             </div>
             <a href="https://calendly.com/merlinsgroup/30min" class="nav-cta">
                 Schedule Demo →
@@ -802,12 +953,14 @@
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    ⚡ Enterprise-Grade Recruitment Platform
+                    ⚡ Enterprise-Grade Recruitment Intelligence
                 </div>
                 <h1>
-                    The Future of <span>Intelligent Hiring</span> 
-                    Is Here
+                    Welcome to <span>SmartTalentPortal</span>
                 </h1>
+                <h2 style="font-size: 1.75rem; font-weight: 300; color: rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem; margin-top: -1rem;">
+                    The Future of Intelligent Hiring Is Here
+                </h2>
                 <p class="hero-description">
                     Transform your recruitment process with AI-powered CV analysis, automated video screening, and comprehensive talent management—all unified in one sophisticated platform trusted by industry leaders.
                 </p>
@@ -972,6 +1125,55 @@
         </div>
     </section>
 
+    <!-- Platform Screenshots Section -->
+    <section class="screenshots">
+        <div class="screenshots-container">
+            <div class="section-header">
+                <div class="section-tag">PLATFORM PREVIEW</div>
+                <h2 class="section-title">See Merlin in Action</h2>
+                <p class="section-subtitle">
+                    Experience the intuitive interface that's transforming recruitment for enterprises worldwide
+                </p>
+            </div>
+            <div class="screenshots-wrapper">
+                <div class="screenshot-tabs">
+                    <button class="tab-button active" onclick="showScreenshot('interviews')">
+                        <span class="tab-icon">▶</span> Video Interviews
+                    </button>
+                    <button class="tab-button" onclick="showScreenshot('cvs')">
+                        <span class="tab-icon">📄</span> CV Management
+                    </button>
+                    <button class="tab-button" onclick="showScreenshot('candidates')">
+                        <span class="tab-icon">👥</span> Candidate Pipeline
+                    </button>
+                </div>
+                <div class="screenshot-display">
+                    <div class="screenshot-frame active" id="interviews-screen">
+                        <img src="interviews.png" alt="Video Interview Platform" class="screenshot-image">
+                        <div class="screenshot-caption">
+                            <h4>Streamlined Video Interviews</h4>
+                            <p>Review candidate videos with AI-powered insights, collaborative scoring, and automated transcriptions</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-frame" id="cvs-screen">
+                        <img src="cvs.png" alt="CV Management System" class="screenshot-image">
+                        <div class="screenshot-caption">
+                            <h4>Intelligent CV Processing</h4>
+                            <p>Automatically parse, rank, and organize thousands of applications with our AI-driven system</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-frame" id="candidates-screen">
+                        <img src="candidates.png" alt="Candidate Pipeline" class="screenshot-image">
+                        <div class="screenshot-caption">
+                            <h4>Complete Candidate Management</h4>
+                            <p>Track every candidate through your pipeline with powerful filters, tags, and collaboration tools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Client Testimonial Section -->
     <section class="testimonial">
         <div class="testimonial-container">
@@ -1016,9 +1218,7 @@
                     <a href="https://calendly.com/merlinsgroup/30min" class="cta-main">
                         Schedule Your Demo Today →
                     </a>
-                    <a href="#" class="cta-secondary">
-                        View Pricing
-                    </a>
+                  
                 </div>
             </div>
         </div>
@@ -1062,8 +1262,31 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Merlin Recruitment Solutions. All rights reserved. | SOC 2 Type II Certified | GDPR Compliant</p>
+            <p>&copy; 2025 SmartTalentPortal by MerlinsGroup. All rights reserved. | SOC 2 Type II Certified | GDPR Compliant</p>
         </div>
     </footer>
+    
+    <script>
+        function showScreenshot(screen) {
+            // Remove active class from all tabs and screens
+            const tabs = document.querySelectorAll('.tab-button');
+            const screens = document.querySelectorAll('.screenshot-frame');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            screens.forEach(screen => screen.classList.remove('active'));
+            
+            // Add active class to selected tab and screen
+            if (screen === 'interviews') {
+                tabs[0].classList.add('active');
+                document.getElementById('interviews-screen').classList.add('active');
+            } else if (screen === 'cvs') {
+                tabs[1].classList.add('active');
+                document.getElementById('cvs-screen').classList.add('active');
+            } else if (screen === 'candidates') {
+                tabs[2].classList.add('active');
+                document.getElementById('candidates-screen').classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
