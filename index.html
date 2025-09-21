@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merlin | Enterprise Recruitment Intelligence Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0A0E27;
+            --secondary: #1E3A8A;
+            --accent: #3B82F6;
+            --gold: #F59E0B;
+            --text-primary: #0F172A;
+            --text-secondary: #64748B;
+            --white: #FFFFFF;
+            --light-bg: #F8FAFC;
+            --border: #E2E8F0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            background: var(--white);
+        }
+        
+        /* Premium Typography */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo {
+            height: 45px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.875rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 14px rgba(10, 14, 39, 0.15);
+        }
+        
+        .nav-cta:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(10, 14, 39, 0.25);
+        }
+        
+        /* Hero Section - Premium Glass Design */
+        .hero {
+            margin-top: 75px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(30, 58, 138, 0.1) 0%, transparent 50%);
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(245, 158, 11, 0.1));
+            animation: float-shape 20s infinite ease-in-out;
+        }
+        
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-duration: 25s;
+        }
+        
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            right: 10%;
+            animation-duration: 30s;
+            animation-delay: 5s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            right: 30%;
+            animation-duration: 20s;
+            animation-delay: 10s;
+        }
+        
+        @keyframes float-shape {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+        }
+        
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            max-width: 750px;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            animation: slideDown 0.8s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: slideUp 0.8s ease-out 0.6s both;
+        }
+        
+        .btn-primary {
+            background: var(--gold);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Stats Section */
+        .stats-bar {
+            background: var(--white);
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Features Section - Premium Cards */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+        
+        .features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-tag {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            border-color: var(--accent);
+        }
+        
+        .feature-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(30, 58, 138, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon-wrapper {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(30, 58, 138, 0.08));
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .feature-icon-wrapper svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--accent);
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .feature-link {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            transition: gap 0.3s ease;
+        }
+        
+        .feature-link:hover {
+            gap: 1rem;
+        }
+        
+        /* Client Testimonial - Premium Design */
+        .testimonial {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+        
+        .testimonial-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 24px;
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(10, 14, 39, 0.3);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            font-size: 200px;
+            color: rgba(255, 255, 255, 0.05);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .client-info {
+            text-align: center;
+        }
+        
+        .client-logo-wrapper {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .client-logo {
+            height: 60px;
+            object-fit: contain;
+        }
+        
+        .client-name {
+            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .client-designation {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+        
+        .testimonial-video-wrapper {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .testimonial-video {
+            width: 100%;
+            border-radius: 16px;
+        }
+        
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(245, 158, 11, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .testimonial-video::-webkit-media-controls {
+            z-index: 2;
+        }
+        
+        .testimonial-quote {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .quote-text {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        /* CTA Section - Premium */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-main {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 1.25rem 3rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 15px 40px rgba(10, 14, 39, 0.2);
+        }
+        
+        .cta-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(10, 14, 39, 0.3);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: var(--primary);
+            padding: 1.25rem 2.5rem;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-secondary:hover {
+            border-color: var(--accent);
+            background: var(--light-bg);
+        }
+        
+        /* Footer - Premium */
+        .footer {
+            background: var(--primary);
+            padding: 4rem 2rem 2rem;
+            color: var(--white);
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-logo {
+            height: 50px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+        
+        .footer-column h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-cta-group {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <img src="merlin.png" alt="Merlin" class="logo">
+            </div>
+            <a href="https://calendly.com/merlinsgroup/30min" class="nav-cta">
+                Schedule Demo →
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    ⚡ Enterprise-Grade Recruitment Platform
+                </div>
+                <h1>
+                    The Future of <span>Intelligent Hiring</span> 
+                    Is Here
+                </h1>
+                <p class="hero-description">
+                    Transform your recruitment process with AI-powered CV analysis, automated video screening, and comprehensive talent management—all unified in one sophisticated platform trusted by industry leaders.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="https://calendly.com/merlinsgroup/30min" class="btn-primary">
+                        Start Free Trial →
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        View Capabilities
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Faster Hiring Process</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10,000+</div>
+                <div class="stat-label">CVs Processed Daily</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Enterprise Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="section-header">
+                <div class="section-tag">CAPABILITIES</div>
+                <h2 class="section-title">Enterprise Features That Scale</h2>
+                <p class="section-subtitle">
+                    Comprehensive recruitment intelligence designed for modern enterprises
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 4C16.536 4 4 16.536 4 32s12.536 28 28 28 28-12.536 28-28S47.464 4 32 4zm0 8c3.314 0 6 2.686 6 6s-2.686 6-6 6-6-2.686-6-6 2.686-6 6-6zm0 39.2c-5.6 0-10.54-2.856-13.44-7.2.056-4.44 8.96-6.88 13.44-6.88s13.384 2.44 13.44 6.88c-2.9 4.344-7.84 7.2-13.44 7.2z" opacity="0.3"/>
+                            <circle cx="44" cy="20" r="8" fill="currentColor"/>
+                            <path d="M44 24c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" fill="white"/>
+                            <rect x="38" y="28" width="12" height="16" rx="2" fill="currentColor" opacity="0.7"/>
+                            <path d="M20 40h24v2H20zm0 4h20v2H20zm0 4h16v2H20z" fill="currentColor" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">AI-Powered CV Intelligence</h3>
+                    <p class="feature-description">
+                        Advanced machine learning algorithms scan, parse, and rank thousands of CVs instantly. Extract key skills, experience, and qualifications with 99.9% accuracy while eliminating unconscious bias.
+                    </p>
+                    <a href="#" class="feature-link">Learn More →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="16" width="48" height="32" rx="4" fill="currentColor" opacity="0.3"/>
+                            <rect x="12" y="20" width="40" height="24" rx="2" fill="currentColor" opacity="0.2"/>
+                            <circle cx="32" cy="32" r="8" fill="currentColor"/>
+                            <path d="M32 28l4 4-4 4-4-4z" fill="white"/>
+                            <circle cx="48" cy="24" r="3" fill="currentColor" opacity="0.7"/>
+                            <path d="M10 52h44l-4 8H14z" fill="currentColor" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Asynchronous Video Interviews</h3>
+                    <p class="feature-description">
+                        Conduct scalable video interviews with HD recording, automated transcription, and sentiment analysis. Review candidates on your schedule with collaborative team scoring features.
+                    </p>
+                    <a href="#" class="feature-link">Learn More →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="12" width="48" height="40" rx="2" fill="currentColor" opacity="0.2"/>
+                            <rect x="12" y="16" width="20" height="8" fill="currentColor" opacity="0.5"/>
+                            <rect x="36" y="16" width="16" height="8" fill="currentColor" opacity="0.3"/>
+                            <path d="M12 28h40v2H12zm0 4h40v2H12z" fill="currentColor" opacity="0.3"/>
+                            <rect x="12" y="38" width="12" height="10" fill="currentColor" opacity="0.7"/>
+                            <rect x="26" y="38" width="12" height="10" fill="currentColor" opacity="0.5"/>
+                            <rect x="40" y="38" width="12" height="10" fill="currentColor" opacity="0.6"/>
+                            <circle cx="50" cy="20" r="8" fill="currentColor"/>
+                            <path d="M50 16v4h4" stroke="white" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Predictive Analytics Dashboard</h3>
+                    <p class="feature-description">
+                        Real-time recruitment metrics, pipeline analytics, and predictive hiring insights. Make data-driven decisions with comprehensive reporting and customizable KPI tracking.
+                    </p>
+                    <a href="#" class="feature-link">Learn More →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 8c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24S45.255 8 32 8zm0 4c11.046 0 20 8.954 20 20s-8.954 20-20 20-20-8.954-20-20 8.954-20 20-20z" fill="currentColor" opacity="0.3"/>
+                            <path d="M32 18c-7.732 0-14 6.268-14 14s6.268 14 14 14 14-6.268 14-14-6.268-14-14-14z" fill="currentColor" opacity="0.2"/>
+                            <rect x="30" y="22" width="4" height="14" fill="currentColor"/>
+                            <rect x="28" y="30" width="8" height="4" fill="currentColor"/>
+                            <circle cx="32" cy="32" r="3" fill="currentColor"/>
+                            <path d="M44 12l4-4 4 4-4 4z" fill="currentColor" opacity="0.7"/>
+                            <path d="M12 44l4-4 4 4-4 4z" fill="currentColor" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Enterprise Security & Compliance</h3>
+                    <p class="feature-description">
+                        SOC 2 Type II certified with GDPR compliance. Bank-level encryption, role-based access control, and comprehensive audit trails ensure your data remains secure and compliant.
+                    </p>
+                    <a href="#" class="feature-link">Learn More →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="24" y="8" width="16" height="20" rx="2" fill="currentColor" opacity="0.3"/>
+                            <rect x="8" y="24" width="16" height="20" rx="2" fill="currentColor" opacity="0.3"/>
+                            <rect x="40" y="24" width="16" height="20" rx="2" fill="currentColor" opacity="0.3"/>
+                            <rect x="24" y="40" width="16" height="16" rx="2" fill="currentColor" opacity="0.3"/>
+                            <path d="M32 18l8 8-8 8-8-8z" fill="currentColor"/>
+                            <path d="M16 34l8 8-8 8-8-8z" fill="currentColor" opacity="0.7"/>
+                            <path d="M48 34l8 8-8 8-8-8z" fill="currentColor" opacity="0.7"/>
+                            <circle cx="32" cy="48" r="4" fill="currentColor"/>
+                            <path d="M24 26h16M24 30h16M16 42h16M40 42h16" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Seamless ATS Integration</h3>
+                    <p class="feature-description">
+                        Native integrations with Workday, SuccessFactors, Greenhouse, and 50+ leading ATS platforms. Bi-directional sync ensures your recruitment ecosystem stays connected.
+                    </p>
+                    <a href="#" class="feature-link">Learn More →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="8" fill="currentColor" opacity="0.3"/>
+                            <circle cx="44" cy="20" r="8" fill="currentColor" opacity="0.3"/>
+                            <circle cx="32" cy="44" r="8" fill="currentColor" opacity="0.3"/>
+                            <path d="M20 28v8l12 8 12-8v-8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M26 20h12" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 20l24 24M44 20L20 44" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                            <circle cx="44" cy="20" r="3" fill="currentColor"/>
+                            <circle cx="32" cy="44" r="3" fill="currentColor"/>
+                            <path d="M52 32l4 4-4 4M12 32l-4 4 4 4" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Automated Workflow Engine</h3>
+                    <p class="feature-description">
+                        Design custom recruitment workflows with drag-and-drop automation. From initial screening to offer letters, automate repetitive tasks and focus on strategic hiring decisions.
+                    </p>
+                    <a href="#" class="feature-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonial Section -->
+    <section class="testimonial">
+        <div class="testimonial-container">
+            <div class="section-header">
+                <div class="section-tag">SUCCESS STORY</div>
+                <h2 class="section-title">Trusted by Industry Leaders</h2>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="client-info">
+                        <div class="client-logo-wrapper">
+                            <img src="easy2recruit.png" alt="Easy2Recruit" class="client-logo">
+                        </div>
+                        <div class="client-name">Easy2Recruit</div>
+                        <div class="client-designation">Leading Recruitment Partner</div>
+                    </div>
+                    <div class="testimonial-video-wrapper">
+                        <video controls class="testimonial-video">
+                            <source src="easy2recruit-testimonial.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="testimonial-quote">
+                        <p class="quote-text">
+                            "Merlin has fundamentally transformed our recruitment operations. We've reduced time-to-hire by 85% while improving candidate quality metrics across the board."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-card">
+                <h2 class="cta-title">Ready to Transform Your Recruitment?</h2>
+                <p class="cta-description">
+                    Join 500+ enterprises already using Merlin to build world-class teams faster and smarter than ever before.
+                </p>
+                <div class="cta-button-wrapper">
+                    <a href="https://calendly.com/merlinsgroup/30min" class="cta-main">
+                        Schedule Your Demo Today →
+                    </a>
+                    <a href="#" class="cta-secondary">
+                        View Pricing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="merlin.png" alt="Merlin" class="footer-logo">
+                <p class="footer-description">
+                    Enterprise recruitment intelligence platform trusted by Fortune 500 companies worldwide.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Platform</h4>
+                <div class="footer-links">
+                    <a href="#">Features</a>
+                    <a href="#">Integrations</a>
+                    <a href="#">Security</a>
+                    <a href="#">Pricing</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Partners</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <div class="footer-links">
+                    <a href="#">Documentation</a>
+                    <a href="#">API Reference</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Merlin Recruitment Solutions. All rights reserved. | SOC 2 Type II Certified | GDPR Compliant</p>
+        </div>
+    </footer>
+</body>
+</html>
